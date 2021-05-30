@@ -1,0 +1,41 @@
+general:
+    link_prediction: False
+    node_classification: True
+
+data_prep:
+    data_path: "./processed_data/ablation_text"
+    emb: 16
+    prune: True
+    final: True
+    prune_dist: 2
+    
+enivron:
+    device: "cuda"
+    
+embeddings:
+    use_saved_embeddings: True
+    imagebatch: 1
+    cnn_type: "squeezenet" # can select between squeezenet and SFCNnet
+    stringbatch: 50_000
+    sample_size: 110
+    sample_duration: 16
+    embedding_path: './embeddings/ablation_text'
+    
+link_pred:
+    split_ratio: 0.2
+
+rgcn:
+    bases: 40
+    lr: 0.001
+    l2: 0.0005
+    wd: 0.0
+    
+training:
+    epochs: 2000
+    printnorms: None
+    patience: 20
+    best_score: -1
+    delta: 0.0001
+    model_path: './saved_models/ablation_text'
+    results_path: './results/ablation_text'
+
